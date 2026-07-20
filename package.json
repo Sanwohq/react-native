@@ -1,0 +1,50 @@
+{
+  "name": "@sanwohq/react-native",
+  "version": "0.1.0",
+  "description": "Sanwo payment SDK for React Native",
+  "license": "Apache-2.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-native": ">=0.70.0",
+    "react-native-webview": ">=11.0.0"
+  },
+  "dependencies": {
+    "@sanwohq/core": "^0.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "react": "^19.0.0",
+    "react-native": "^0.79.0",
+    "react-native-webview": "^13.0.0",
+    "typescript": "^5.8.0",
+    "@changesets/cli": "^2.27.0"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sanwohq/react-native.git"
+  },
+  "keywords": [
+    "sanwo",
+    "payments",
+    "react-native",
+    "paystack",
+    "flutterwave",
+    "paypal",
+    "razorpay"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false
+}
