@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   Modal,
   View,
@@ -29,7 +29,8 @@ export function SanwoCheckoutModal({
   onError,
 }: CheckoutModalProps) {
   const [isWebViewLoading, setIsWebViewLoading] = useState(true);
-  const webViewRef = useRef<WebView>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const webViewRef = useRef<any>(null);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const log = useCallback(
