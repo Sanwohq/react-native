@@ -3,34 +3,37 @@ name: Release
 on:
   push:
     branches: [main]
-
-concurrency: ${{ github.workflow }}-${{ github.ref }}
+  pull_request:
+    branches: [main]
 
 jobs:
-  release:
+  build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: "npm"
-          registry-url: "https://registry.npmjs.org"
-
-      - run: npm install
-
+      - run: npm ci
       - run: npm run build
 
-      - name: Version packages
-        run: npx changeset version
-
+  publish:
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: "https://registry.npmjs.org"
+      - run: npm ci
+      - run: npm run build
+      - run: npx changeset version
       - name: Publish to npm
         run: npx changeset publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - name: Push version bumps
         continue-on-error: true
         run: |
