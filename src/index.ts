@@ -1,5 +1,6 @@
 export { SanwoProvider, useSanwoContext } from "./context";
 export type { SanwoProviderProps, UseSanwoCheckoutReturn } from "./types";
+export { useSanwo } from "./use-sanwo";
 export { useSanwoCheckout } from "./use-sanwo-checkout";
 
 // Re-export commonly used types from @sanwohq/core so consumers
