@@ -2,6 +2,8 @@
 
 React Native SDK for [Sanwo](https://sanwohq.com) — one interface for every payment provider.
 
+> **Full documentation at [docs.sanwo.dev](https://docs.sanwo.dev/sdks/react-native/)** — always up to date with guides, examples, and API reference for every SDK and provider.
+
 ## Installation
 
 ```bash
